@@ -13,6 +13,8 @@ export default {
         // console.log('all users component is mounted');
 
         // This is where you should do all of your user data retrieval
+        // It has to be full fetch URL
+        // ums - incoming route
         fetch('/ums/users')
             .then(res => res.json())
             .then(data => console.log(data))
