@@ -8,6 +8,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 })
 
+app.use('/ums', require('./routes/index'));
+
 app.listen(port, ()=> {
     console.log(`app is running on ${port}`);
 })
