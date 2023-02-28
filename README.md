@@ -7,6 +7,12 @@ Feb 28th, 2023 (Tuesday)
 ## Writer
 Seunghyeon Sydney Yeom (0975764)
 
+## Tools/Installation
+> NPM
+> NPM - EXPRESS
+> NPM - http proxy middleware
+> Vue
+
 ## MIT License
 Copyright 2023 Seunghyeon Yeom
 
