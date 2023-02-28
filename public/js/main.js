@@ -1,8 +1,7 @@
 //  imports always go at the top
-import LogInPage from './components/TheLoginComponents.js';
-import UsersComponent from './components/TheLoginComponents.js';
-
-
+// import LogInPage from './components/TheLoginComponent.js';
+import UsersComponent from './components/TheUsersComponent.js';
+import AllUsersPage from './components/TheAllUsersComponent.js';
 
 const { createApp } = Vue;
 // import the createApp method from the Vue library
@@ -14,10 +13,16 @@ const router = VueRouter.createRouter({
         // the vue router will try to match these routes
         // this is what you put in the location bar in the browser
         // when you get a match, vue will render the specified component
+        // { 
+        //     path: '/', //browser location bar looks like this
+        //     name: 'login', // for programmatic navigation
+        //     component: LogInPage // the component to render
+        // },
+
         { 
             path: '/', //browser location bar looks like this
-            name: 'login', // for programmatic navigation
-            component: LogInPage // the component to render
+            name: 'allusers', // for programmatic navigation
+            component: AllUsersPage // the component to render
         },
 
         { 
@@ -35,10 +40,10 @@ const router = VueRouter.createRouter({
         // }
 
     ], // short for `routes: routes`
-  })
-  
+})
+
   // 5. Create and mount the root instance.
-  const app = Vue.createApp({
+const app = Vue.createApp({
         methods: {
             tryRouterPush() {
                 this.$router.push({
@@ -47,10 +52,8 @@ const router = VueRouter.createRouter({
             } 
 
         }
-  })
+})
   // Make sure to _use_ the router instance to make the
   // whole app router-aware.
-  app.use(router)
-  
-  app.mount('#app')
-  
+app.use(router)
+app.mount('#app');

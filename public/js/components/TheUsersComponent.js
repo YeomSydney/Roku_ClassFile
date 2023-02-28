@@ -9,7 +9,8 @@ export default {
         // inside of this main component
     },
 
-    template: `
+    template: 
+    `
     <section>
         <h1> This is the all users component </h1>
         <p> Render a panel for every user in the database</p>
