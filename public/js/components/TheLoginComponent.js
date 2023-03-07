@@ -13,17 +13,32 @@ export default {
   
       <section class="log-in">
         <label class="sr-only" for="inlineFormInputName">Name</label>
-        <input type="text" class="form-control" id="inlineFormInputName" placeholder="username" required>
+        <input v-model="username" type="text" class="form-control" id="inlineFormInputName" placeholder="username" required>
   
         <label class="sr-only" for="inlineFormPassword">Name</label>
-        <input type="password" class="form-control" id="inlineFormPassword" placeholder="password" required>
+        <input v-model="password" type="password" class="form-control" id="inlineFormPassword" placeholder="password" required>
       </section>
   
       <button
           type="submit" 
           class="btn btn-primary login-submit"
+          @click="tryLogIn"
         >Go!
       </button>
     </section>
-  `
+  `,
+
+  data() {
+    return {
+      username: '',
+      password: '',
+      authenticated: false
+    }
+  },
+
+  methods: {
+    tryLogIn() {
+      debugger;
+    }
+  }
 }

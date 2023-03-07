@@ -1,3 +1,5 @@
+import SingleUser from './TheSingleUserComponent.js';
+
 export default {
     name: 'TheAllUsersComponent',
 
@@ -6,6 +8,14 @@ export default {
     <section>
         <h1>All Users Should Show Up Here</h1>
         <h2>Who's using roku?</h2>
+
+        <section>
+            <ul>
+                <li v-for="user in users">
+                    <user :user="user"></user>
+                </li>
+            </ul>
+        </section>
     </section>
     `,
 
@@ -17,7 +27,21 @@ export default {
         // ums - incoming route
         fetch('/ums/users')
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data);
+                // Push our users into our Vue data object so we can render a component for each user
+                this.users = data;
+            })
         .catch(error => console.error(error));
+    },
+
+    data() {
+        return {
+            users: []
+        }
+    },
+
+    components: {
+        user: SingleUser
     }
 }
