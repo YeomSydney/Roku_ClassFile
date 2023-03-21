@@ -1,0 +1,43 @@
+#main-header {
+    top: 0;
+}
+
+#render-container {
+    margin-top: 100px;
+}
+
+.login-submit {
+    margin-top: 1.5em;
+}
+
+.log-in label {
+    margin: 1.5em 0 .5em 0;
+}
+
+.missing-field {
+    border: 2px solid red;
+    background-color: #ffb1b130;
+    /* color: #ffb1b1; */
+}
+
+.float-right {
+    float: right;
+}
+
+.signup {
+    /* display: block; */
+    margin-left: 1.5em;
+}
+
+.user-panel {
+    text-align: center;
+}
+
+.user-panel ul li {
+    list-style: none;
+}
+
+.userpanel {
+    display: inline-block;
+    margin: 1em;
+}

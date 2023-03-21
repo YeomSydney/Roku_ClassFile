@@ -20,14 +20,14 @@ const router = VueRouter.createRouter({
         // when you get a match, vue will render the specified component
 
         // Login
-        { 
+        {
             path: '/', //browser location bar looks like this
             name: 'login', // for programmatic navigation
             component: LogInPage // the component to render
         },
 
         // Users
-        { 
+        {
             path: '/users', //browser location bar looks like this
             name: 'allusers', // for programmatic navigation
             component: AllUsersPage // the component to render
@@ -64,17 +64,41 @@ const router = VueRouter.createRouter({
     ], // short for `routes: routes`
 })
 
-  // 5. Create and mount the root instance.
+// 5. Create and mount the root instance.
 const app = Vue.createApp({
-        methods: {
-            tryRouterPush() {
-                this.$router.push({
-                    name: 'home'
-                })
-            }
+    mounted() {
+        // check for a previous login in localStorage
+        if (window.localStorage.getItem('user')) {
+            this.authenticated = true;
+            this.$router.push({name: 'allusers'});
         }
+    },
+
+    data() {
+        return {
+            authenticated: false
+        }
+    },
+
+    methods: {
+        // tryRouterPush() {
+        //     this.$router.push({
+        //         name: 'home'
+        //     })
+        // },
+
+        logUserOut() {
+            this.authenticated = false;
+            window.localStorage.removeItem('user');
+            this.$router.push({ name: 'login' });
+        },
+
+        loggedIn() {
+            this.authenticated = true;
+        }
+    }
 })
-  // Make sure to _use_ the router instance to make the
-  // whole app router-aware.
+// Make sure to _use_ the router instance to make the
+// whole app router-aware.
 app.use(router)
 app.mount('#app');

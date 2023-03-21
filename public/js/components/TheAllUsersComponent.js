@@ -5,14 +5,13 @@ export default {
 
     template: 
     `
-    <section>
-        <h1>All Users Should Show Up Here</h1>
+    <section class="user-panel">
         <h2>Who's using roku?</h2>
 
         <section>
             <ul>
-                <li v-for="user in users">
-                    <user :user="user"></user>
+                <li>
+                    <user v-for="user in users" :user="user"></user>
                 </li>
             </ul>
         </section>
